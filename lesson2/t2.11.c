@@ -29,8 +29,12 @@ char *ds(char *s)
 int main()
 {
     char s[] = "He110!";
+    char *res;
 
-    printf("%s",ds(s));
+    res = ds(s);
+    printf("%s",res);
+
+    free(res);
 
     return 0;
 }
