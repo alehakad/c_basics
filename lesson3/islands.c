@@ -77,15 +77,16 @@ island *releaselast(island *start,island *end){
 
 
 int main(){
-    int i;
+    int i,c=1;
     island *start = NULL;/*указатель на первый остров*/
     island *end = NULL;/*указатель на последний остров*/
     island *curr = NULL;/*указатель на вновь создаваемый,удаляемый остров*/
     char name[80];
-    while(i!=7)
+    while(i!=7 && c==1)
     {
         printf("Menu:\n1) Create first element\n2) Append element\n3) Remove element\n4) Display\n5) Delete\n6) Search\n7) Exit\n");
-        scanf("%d",&i);
+        c=scanf("%d",&i);
+
         if(i==1)
         {
             if(start == NULL)
