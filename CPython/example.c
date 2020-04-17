@@ -1,18 +1,18 @@
 #include <Python.h>
 
-static PyObject *py_plus(PyObject *self, PyObject *args){
+static PyObject *py_plus(PyObject *self, PyObject *args){/*без (PyObject *self, PyObject *args) не заработало*/
   PyObject *pList;
   PyObject *pItem;
   Py_ssize_t n;
-  int i;
+ 
 
-  if (!PyArg_ParseTuple(args, "O!", &PyList_Type, &pList)) {
+  if (!PyArg_ParseTuple(args, "O!", &PyList_Type, &pList)) { /*считывание списка с проверкой*/
     PyErr_SetString(PyExc_TypeError, "parameter must be a list.");
     return NULL;
     }
   
-  n = PyList_Size(pList);
-  return Py_BuildValue("n",n);
+  n = PyList_Size(pList);/*тут все методы работы со списком https://docs.python.org/3/c-api/list.html#c.PyList_GetItem*/
+  return Py_BuildValue("n",n); /*возвращать надо PyObject, видимо, каждый раз надо конвертировать обратно*/
 }
   
 
