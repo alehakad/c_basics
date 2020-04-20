@@ -17,6 +17,6 @@ static PyObject *st_div_r(PyObject *self, PyObject *args){
   {
 	PyList_SetItem(pList,i,Py_BuildValue("d",PyFloat_AsDouble(PyList_GetItem(pList,i))/x));
 		};
-  Py_INCREF(pList);// чтобы вернуть лист
+  Py_INCREF(pList);
   return pList;
 }
