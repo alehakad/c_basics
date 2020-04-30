@@ -1,6 +1,8 @@
 static PyObject *st_minus_st(PyObject *self, PyObject *args){
   PyObject *pList;
   PyObject *pList1;
+  PyObject *nList;
+  
   int i;
   Py_ssize_t n;
 
@@ -13,9 +15,10 @@ static PyObject *st_minus_st(PyObject *self, PyObject *args){
 
 
   n = PyList_Size(pList);
+  nList = PyList_New(n);
   for(i=0;i<n;i++)
   {
-	PyList_SetItem(pList,i,Py_BuildValue("d",PyFloat_AsDouble(PyList_GetItem(pList,i))-PyFloat_AsDouble(PyList_GetItem(pList1,i))));
+	PyList_SetItem(nList,i,Py_BuildValue("d",PyFloat_AsDouble(PyList_GetItem(pList,i))-PyFloat_AsDouble(PyList_GetItem(pList1,i))));
 		};
   Py_INCREF(pList);
 
@@ -24,6 +27,5 @@ static PyObject *st_minus_st(PyObject *self, PyObject *args){
 
 
 
-  return pList;
+  return nList;
 }
-
