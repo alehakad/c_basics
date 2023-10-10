@@ -1,1 +1,1 @@
-## C projects from university course
+C projects from university course
